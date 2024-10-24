@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.ijse.salesystem.entity.Stock;
 
 @Repository
-public interface StockRepository extends JpaRepository<Long,Stock>{
+public interface StockRepository extends JpaRepository<Stock,Long>{
     
 }
