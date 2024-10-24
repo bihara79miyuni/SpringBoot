@@ -10,4 +10,6 @@ import com.ijse.salesystem.entity.Item;
 public interface ItemService {
     List<Item> getAllItems();
     Item createItem(Item item);
+    Item updateItem(Long id,Item item);
+    void deleteItem(Long id);
 }

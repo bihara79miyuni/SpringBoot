@@ -28,4 +28,20 @@ public class CategoryServiceImpl implements CategoryService{
     public Category createCategory(Category category){
         return categoryRepository.save(category);
     }
+
+    @Override
+    public Category updateCategory(Long id,Category category){
+        Category existingCategory = categoryRepository.findById(id).orElse(null);
+        if(existingCategory == null){
+            return null;
+        }else{
+            existingCategory.setName(category.getName());
+            return categoryRepository.save(existingCategory);
+        }
+    }
+
+    @Override
+    public void deleteCategory(Long id){
+        categoryRepository.deleteById(id);
+    }
 }

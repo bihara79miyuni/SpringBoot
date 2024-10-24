@@ -23,4 +23,25 @@ public class ItemServiceImpl implements ItemService{
     public Item createItem(Item item){
         return itemRepository.save(item);
     }
+
+    @Override
+    public Item updateItem(Long id,Item item){
+        Item existingItem = itemRepository.findById(id).orElse(null);
+
+        if(existingItem == null){
+            return null;
+        }else{
+            existingItem.setName(item.getName());
+            existingItem.setPrice(item.getPrice());
+            existingItem.setCategory(item.getCategory());
+            existingItem.setStock(item.getStock());
+
+            return itemRepository.save(existingItem);
+        }
+    }
+
+    @Override
+    public void deleteItem(Long id){
+        itemRepository.deleteById(id);
+    }
 }

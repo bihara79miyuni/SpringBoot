@@ -29,4 +29,24 @@ public class StockServiceImpl implements StockService{
         return stockRepository.save(stock);
     }
 
+    @Override
+    public Stock updateStock(Long id,Stock stock){
+        Stock existingStock = stockRepository.findById(id).orElse(null);
+
+        if(existingStock == null){
+            return null;
+        }else{
+            existingStock.setName(stock.getName());
+            existingStock.setCurrentQty(stock.getCurrentQty());
+            existingStock.setLastUpdated(stock.getLastUpdated());
+
+            return stockRepository.save(existingStock);
+        }
+    }
+
+    @Override
+    public void deleteStock(Long id){
+        stockRepository.deleteById(id);
+    }
+
 }
