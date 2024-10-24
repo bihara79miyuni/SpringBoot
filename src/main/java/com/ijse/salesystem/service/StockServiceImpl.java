@@ -18,4 +18,15 @@ public class StockServiceImpl implements StockService{
     public List<Stock> getAllStocks(){
         return stockRepository.findAll();
     }
+
+    @Override
+    public Stock getStockById(Long id){
+        return stockRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Stock createStock(Stock stock){
+        return stockRepository.save(stock);
+    }
+
 }

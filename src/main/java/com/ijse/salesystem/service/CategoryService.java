@@ -9,4 +9,6 @@ import com.ijse.salesystem.entity.Category;
 @Service
 public interface CategoryService {
     List<Category> getAllCategories();
+    Category getCategoryById(Long id);
+    Category createCategory(Category category);
 }

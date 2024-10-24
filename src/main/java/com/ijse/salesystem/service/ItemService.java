@@ -9,5 +9,5 @@ import com.ijse.salesystem.entity.Item;
 @Service
 public interface ItemService {
     List<Item> getAllItems();
-    
+    Item createItem(Item item);
 }
